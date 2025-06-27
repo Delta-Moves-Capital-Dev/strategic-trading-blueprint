@@ -1,20 +1,44 @@
-{
-    "reports": [
-        {
-            "date": "2025-06-04",
-            "title": "SPX Full Market Prep Report",
-            "filename": "2025-06-04_SPX_MarketPrep_Report.md"
-        },
-        {
-            "date": "2025-06-05",
-            "title": "SPX Full Market Prep Report",
-            "filename": "2025-06-05_SPX_MarketPrep_Report.md"
-        },
-        {
-            "date": "2025-06-06",
-            "title": "SPX Full Market Prep Report",
-            "filename": "2025-06-06_SPX_MarketPrep_Report.md"
-        }
-    ],
-    "last_updated": "2025-06-27 14:22:21"
-}
+[
+  {
+    "title": "SPX Full Market Prep Report",
+    "date": "2025-06-06",
+    "filename": "2025-06-06_SPX_MarketPrep_Report.md",
+    "snippet": "Detailed SPX technicals, gamma, breadth, sector strength, and market internals as of June 6th, 2025.",
+    "tags": ["SPX", "market prep", "breadth", "gamma", "technicals"]
+  },
+  {
+    "title": "SPX Full Market Prep Report",
+    "date": "2025-06-07",
+    "filename": "2025-06-07_SPX_MarketPrep_Report.md",
+    "snippet": "Market holding key gamma zones with rising breadth momentum. Internals support upside continuation.",
+    "tags": ["SPX", "gamma flip", "options flow", "breadth"]
+  },
+  {
+    "title": "SPX Full Market Prep Report",
+    "date": "2025-06-10",
+    "filename": "2025-06-10_SPX_MarketPrep_Report.md",
+    "snippet": "Volatility compression continues ahead of CPI release. Positioning leans long but cautious.",
+    "tags": ["SPX", "VIX", "CPI", "options", "breadth"]
+  },
+  {
+    "title": "SPX Full Market Prep Report",
+    "date": "2025-06-11",
+    "filename": "2025-06-11_SPX_MarketPrep_Report.md",
+    "snippet": "CPI surprise triggers gamma unwind scenario. Breadth weakens slightly but key support holds.",
+    "tags": ["SPX", "CPI", "gamma", "support", "breadth"]
+  },
+  {
+    "title": "SPX Full Market Prep Report",
+    "date": "2025-06-13",
+    "filename": "2025-06-13_SPX_MarketPrep_Report.md",
+    "snippet": "Strong close into OPEX. Internals and volume shift toward tech leadership with broad-based rally.",
+    "tags": ["SPX", "OPEX", "tech", "rotation", "volume"]
+  },
+  {
+    "title": "SPX Full Market Prep Report",
+    "date": "2025-06-27",
+    "filename": "2025-06-27_SPX_MarketPrep_Report.md",
+    "snippet": "SPX hovering above major gamma flip with sector bifurcation and internals still net positive.",
+    "tags": ["SPX", "gamma", "sector rotation", "market internals"]
+  }
+]

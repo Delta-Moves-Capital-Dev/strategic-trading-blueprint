@@ -1,50 +1,41 @@
+// script.js
+// Dynamically load market reports from reports.json and inject into the report-feed section
+
 document.addEventListener("DOMContentLoaded", function () {
-  const reportFeed = document.getElementById("report-feed");
-
   fetch("reports.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((reports) => {
-      if (!Array.isArray(reports) || reports.length === 0) {
-        reportFeed.innerHTML = "<p>No reports found.</p>";
-        return;
-      }
-
+      const reportFeed = document.getElementById("report-feed");
       reports.forEach((report) => {
-        const card = document.createElement("article");
-        card.classList.add("report-card");
+        const article = document.createElement("article");
+        article.className = "report-preview";
 
         const title = document.createElement("h2");
-        title.textContent = report.title;
+        const link = document.createElement("a");
+        link.href = report.url;
+        link.textContent = report.title;
+        link.setAttribute("aria-label", `Read full report: ${report.title}`);
+        title.appendChild(link);
 
         const date = document.createElement("p");
-        date.classList.add("report-date");
+        date.className = "report-date";
         date.textContent = report.date;
 
-        const snippet = document.createElement("p");
-        snippet.classList.add("report-snippet");
-        snippet.textContent = report.snippet;
+        const summary = document.createElement("p");
+        summary.className = "report-summary";
+        summary.textContent = report.snippet || "No summary available.";
 
-        const link = document.createElement("a");
-        link.href = report.link;
-        link.classList.add("report-link");
-        link.textContent = "Read Full Report →";
-        link.setAttribute("target", "_blank");
+        article.appendChild(title);
+        article.appendChild(date);
+        article.appendChild(summary);
 
-        card.appendChild(title);
-        card.appendChild(date);
-        card.appendChild(snippet);
-        card.appendChild(link);
-
-        reportFeed.appendChild(card);
+        reportFeed.appendChild(article);
       });
     })
     .catch((error) => {
       console.error("Error loading reports:", error);
-      reportFeed.innerHTML = "<p>Error loading reports. Please try again later.</p>";
+      const fallback = document.createElement("p");
+      fallback.textContent = "Unable to load reports at this time.";
+      document.getElementById("report-feed").appendChild(fallback);
     });
 });
