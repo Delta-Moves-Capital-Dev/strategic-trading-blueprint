@@ -1,0 +1,37 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node / Web development tools (future-proofing)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode workspace
+.vscode/
+*.code-workspace
+
+# Output builds or logs
+dist/
+build/
+logs/
+*.log
+
+# Temp or backup
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Mac/Linux executables
+*.out
+*.o
+
+# Windows PowerShell history
+*.pshistory
+
+# OneDrive sync conflicts
+*conflict*
