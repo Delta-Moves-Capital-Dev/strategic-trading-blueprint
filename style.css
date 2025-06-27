@@ -1,5 +1,110 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #0e0e0e;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #222;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-bottom: 4px solid #4CAF50;
+}
+
+.site-header .logo {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+/* Navbar */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #4CAF50;
+}
+
+/* Main Content */
+main.content {
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+main h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+main p {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Report Feed */
+.report-feed ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.report-feed li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-left: 4px solid #4CAF50;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease;
+}
+
+.report-feed li:hover {
+  background-color: #f0f8f4;
+}
+
+.report-feed a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.report-feed a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #ccc;
 }
