@@ -1,41 +1,57 @@
-// script.js
-// Dynamically load market reports from reports.json and inject into the report-feed section
-
-document.addEventListener("DOMContentLoaded", function () {
+# script.js
+document.addEventListener("DOMContentLoaded", () => {
   fetch("reports.json")
-    .then((response) => response.json())
-    .then((reports) => {
+    .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    })
+    .then(data => {
       const reportFeed = document.getElementById("report-feed");
-      reports.forEach((report) => {
+
+      if (!Array.isArray(data) || data.length === 0) {
+        reportFeed.innerHTML = "<p>No market reports available at this time.</p>";
+        return;
+      }
+
+      data.forEach(report => {
         const article = document.createElement("article");
-        article.className = "report-preview";
+        article.classList.add("report");
 
         const title = document.createElement("h2");
-        const link = document.createElement("a");
-        link.href = report.url;
-        link.textContent = report.title;
-        link.setAttribute("aria-label", `Read full report: ${report.title}`);
-        title.appendChild(link);
+        title.textContent = report.title || "Untitled Report";
 
         const date = document.createElement("p");
-        date.className = "report-date";
-        date.textContent = report.date;
+        date.classList.add("report-date");
+        date.textContent = report.date || "Unknown date";
 
-        const summary = document.createElement("p");
-        summary.className = "report-summary";
-        summary.textContent = report.snippet || "No summary available.";
+        const snippet = document.createElement("p");
+        snippet.classList.add("report-snippet");
+        snippet.textContent = report.snippet || "";
+
+        const tags = document.createElement("p");
+        tags.classList.add("report-tags");
+        if (Array.isArray(report.tags)) {
+          tags.textContent = "Tags: " + report.tags.join(", ");
+        }
+
+        const link = document.createElement("a");
+        link.href = report.link || "#";
+        link.textContent = "Read Report";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
 
         article.appendChild(title);
         article.appendChild(date);
-        article.appendChild(summary);
+        if (snippet.textContent) article.appendChild(snippet);
+        if (tags.textContent) article.appendChild(tags);
+        article.appendChild(link);
 
         reportFeed.appendChild(article);
       });
     })
-    .catch((error) => {
+    .catch(error => {
       console.error("Error loading reports:", error);
-      const fallback = document.createElement("p");
-      fallback.textContent = "Unable to load reports at this time.";
-      document.getElementById("report-feed").appendChild(fallback);
+      const reportFeed = document.getElementById("report-feed");
+      reportFeed.innerHTML = "<p>Unable to load reports at this time.</p>";
     });
 });
